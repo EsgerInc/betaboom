@@ -56,6 +56,97 @@
     display: block;
   }
 
+  body.is-locked #deck-shell,
+  body.is-locked #slide-counter,
+  body.is-locked #progress-bar {
+    display: none;
+  }
+
+  #passphrase-gate {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 28%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 24%),
+      linear-gradient(180deg, #020A52 0%, #01072E 100%);
+    z-index: 9999;
+  }
+
+  body.is-locked #passphrase-gate {
+    display: flex;
+  }
+
+  .gate-card {
+    width: min(440px, 100%);
+    padding: 32px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 28px 56px rgba(2, 10, 82, 0.22);
+  }
+
+  .gate-card h1 {
+    font-size: 34px;
+    line-height: 1.08;
+    letter-spacing: -0.05em;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .gate-card p {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .gate-input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--navy-12);
+    font: inherit;
+    font-size: 16px;
+    color: var(--navy);
+    background: #fff;
+    outline: none;
+  }
+
+  .gate-input:focus {
+    border-color: var(--navy-40);
+    box-shadow: 0 0 0 4px var(--navy-8);
+  }
+
+  .gate-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 16px;
+    background: var(--navy);
+    color: #fff;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .gate-error {
+    min-height: 20px;
+    font-size: 14px;
+    color: #b91c1c;
+  }
+
   #deck-shell {
     width: 100vw;
     height: 100vh;
@@ -2409,6 +2500,17 @@
 </style>
 </head>
 <body>
+<div id="passphrase-gate" aria-modal="true" role="dialog" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <h1 id="gate-title">Enter passphrase</h1>
+    <p>This deck is gated. Enter the passphrase to view the presentation.</p>
+    <form class="gate-form" id="gate-form">
+      <input class="gate-input" id="gate-input" type="password" autocomplete="off" placeholder="Passphrase" />
+      <button class="gate-button" type="submit">Open deck</button>
+      <div class="gate-error" id="gate-error" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
 <div id="progress-bar"></div>
 <div id="deck-shell">
 <div id="deck">
@@ -3216,11 +3318,27 @@
 </div>
 <div id="slide-counter"></div>
 <script>
+  const PASSCODE = "betaboomagm";
+  const PASSCODE_STORAGE_KEY = "betaboom-deck-passcode";
   const slides = [...document.querySelectorAll(".slide")];
   const deck = document.getElementById("deck");
   const counter = document.getElementById("slide-counter");
   const progress = document.getElementById("progress-bar");
+  const gateForm = document.getElementById("gate-form");
+  const gateInput = document.getElementById("gate-input");
+  const gateError = document.getElementById("gate-error");
   let index = 0;
+
+  function isUnlocked() {
+    return sessionStorage.getItem(PASSCODE_STORAGE_KEY) === "granted";
+  }
+
+  function setLockedState(locked) {
+    document.body.classList.toggle("is-locked", locked);
+    if (locked) {
+      gateInput.focus();
+    }
+  }
 
   function scaleDeck() {
     const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
@@ -3239,6 +3357,9 @@
   }
 
   document.addEventListener("keydown", (e) => {
+    if (document.body.classList.contains("is-locked")) {
+      return;
+    }
     if (["ArrowRight", "ArrowDown", " ", "PageDown"].includes(e.key)) {
       e.preventDefault();
       index = Math.min(index + 1, slides.length - 1);
@@ -3261,8 +3382,24 @@
     }
   });
 
+  gateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (gateInput.value.trim() === PASSCODE) {
+      sessionStorage.setItem(PASSCODE_STORAGE_KEY, "granted");
+      gateInput.value = "";
+      gateError.textContent = "";
+      setLockedState(false);
+      scaleDeck();
+      render();
+      return;
+    }
+    gateError.textContent = "Incorrect passphrase.";
+    gateInput.select();
+  });
+
   render();
   scaleDeck();
+  setLockedState(!isUnlocked());
   window.addEventListener("resize", scaleDeck);
 </script>
 </body>
