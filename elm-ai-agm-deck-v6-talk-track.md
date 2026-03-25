@@ -54,8 +54,8 @@ Responsible sourcing is where Elm starts, not where it ends. The same shared sup
 ## 18. That Expansion Runs On One Live Supplier Record
 At the center of that expansion is a live supplier record. One place that holds the supplier, the current blockers, the owner, the next deadline, the open issues, the documents, the performance history, and the current risk picture. That is the object the rest of the system runs on.
 
-## 19. Once The Record Exists, New Workflows Are Straightforward
-Once that shared record exists, the workflow expansion becomes straightforward. Audit review and CAPs. Certificate renewals. Supplier readiness. Milestones and delays. Scorecards and risk. Over time, payment, coordination, and the broader supplier relationship as well.
+## 19. Once The Record Exists, You Can Deploy An Army Of Supply-Chain Agents
+Once that shared record exists, you are no longer adding one-off features. You are deploying always-on supply-chain agents that run 24/7 against goals. Some manage audit findings and CAPs. Others track certificate renewals, supplier readiness, milestones, delays, scorecards, and risk. Over time, more of the supplier relationship gets handled by agents that keep performance moving even when teams are offline.
 
 ## 20. Supplier Operations Will Run On Software That Moves The Work
 Elm is building the agent-first system for supplier operations. It starts in responsible sourcing because that is where the pain is sharp and the ROI is immediate, but the larger opportunity is the full supplier relationship running on software that actually moves the work.
