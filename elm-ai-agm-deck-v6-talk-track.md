@@ -28,7 +28,7 @@ Once the audit lands, the loop starts moving immediately. Findings get extracted
 Even within responsible sourcing, the product starts becoming an always-on operating layer. Work keeps moving even when no one is sitting in the product. Reviews get done, deadlines get watched, suppliers get nudged, and the program stays current across the day.
 
 ## 10. This Already Works In The Real World
-This is already working with real customers. We have grown from 3 customers last year to more than 14 today. Revenue is up more than 6x year over year. We already have more than 8,000 factories on the platform. And the strongest traction today is in apparel and promotional goods.
+This is already working with real customers. We have grown from 3 customers last year to more than 14 today. Revenue is up more than 5x year over year. We already have more than 8,000 factories on the platform. And the strongest traction today is in apparel and promotional goods.
 
 ## 11. The Market Is Starting To Pull
 The category itself is also starting to pull. Recent Elm webinars and events have drawn hundreds of companies, including many of the largest brands across apparel, sourcing, and consumer products. The important point is not event attendance on its own. It is that major brands are actively looking for production AI in this category, and very few companies can point to real agents already in market. That is why Elm keeps getting pulled into the conversation.
