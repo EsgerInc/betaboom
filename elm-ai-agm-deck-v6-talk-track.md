@@ -31,7 +31,7 @@ Even within responsible sourcing, the product starts becoming an always-on opera
 This is already working with real customers. We have grown from 3 customers last year to more than 14 today. Revenue is up more than 6x year over year. We already have more than 8,000 factories on the platform. And the strongest traction today is in apparel and promotional goods.
 
 ## 11. The Market Is Starting To Pull
-The category itself is also starting to pull. More companies are actively looking for automation in sourcing. In the recent AAFA webinar, we saw attendance from brands like New Balance, Target, Levi’s, and Stitch Fix, along with a broader group of sourcing, compliance, and product-integrity leaders trying to understand how AI fits into this work. We see the same pattern through panels, inbound interest, and referrals.
+The category itself is also starting to pull. Recent Elm webinars and events have drawn hundreds of companies, including many of the largest brands across apparel, sourcing, and consumer products. The important point is not event attendance on its own. It is that major brands are actively looking for production AI in this category, and very few companies can point to real agents already in market. That is why Elm keeps getting pulled into the conversation.
 
 ## 12. We Can Build This Because We Know This World
 This only works if you understand both the operational environment and what it takes to deploy AI in real enterprises. Our backgrounds span real-world AI systems, sustainability, supply chains, and operating programs inside major brands. That combination is what lets us build something that fits the actual work rather than just describing it.
