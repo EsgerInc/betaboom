@@ -57,8 +57,8 @@ At the center of that expansion is a live supplier record. One place that holds 
 ## 19. Once The Record Exists, You Can Deploy An Army Of Supply-Chain Agents
 Once that shared record exists, you are no longer adding one-off features. You are deploying always-on supply-chain agents that run 24/7 against goals. Some manage audit findings and CAPs. Others track certificate renewals, supplier readiness, milestones, delays, scorecards, and risk. Over time, more of the supplier relationship gets handled by agents that keep performance moving even when teams are offline.
 
-## 20. Supplier Operations Will Run On Software That Moves The Work
-Elm is building the agent-first system for supplier operations. It starts in responsible sourcing because that is where the pain is sharp and the ROI is immediate, but the larger opportunity is the full supplier relationship running on software that actually moves the work.
+## 20. Elm Is Rebuilding The Supply Chain Management Stack For An Agent-First World
+Elm is not just building a better workflow product for responsible sourcing. We are rebuilding the supply chain management stack for an agent-first world. It starts in responsible sourcing because that is where the pain is sharp and the ROI is immediate, expands across supplier operations, and over time aims to replace the fragmented legacy stack around supplier execution.
 
 ## 21. Q&A
 Happy to go deeper on what is live today, how the product works, and how the expansion path unfolds from here.
